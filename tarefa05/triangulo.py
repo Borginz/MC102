@@ -13,7 +13,7 @@ if a>b and a>c:
         elif a**2 > b**2+c**2:
             print('obtusângulo')
     else:
-        print ('não forma triângulo')
+        print('não forma triângulo')
 elif b>a and b>c:
     if a<b+c and b<c+a and c<a+b:
         if b**2 == a**2 + c**2:
