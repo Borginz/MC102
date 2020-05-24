@@ -1,4 +1,5 @@
-n = (input('digite um numero '))
+n = int((input('digite um numero ')))
+n = str(n)
 if len(n)<5:
     if len(n) == 1:
         print('sim')
