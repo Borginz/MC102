@@ -1,43 +1,18 @@
-Algoritmo para identificar o numero com maior numero de divisores
+Problema: 
+- Um amigo gostaria de, sem desperdiçar água, separar um litro, mas não há indicadores de medida nos baldes.
+Entradas: 
+- Você tem três baldes, identificados como A, B e C e com capacidades 2, 7 e 4 litros, respectivamente. Os baldes A e C estão vazios, enquanto o balde B está cheio de água.
+Sáidas: 
+- 1 Litro de água separado num balde
+Instruções elementares necessárias:
+- Pegar um balde com as mãos
+- Verificar quando o balde está na sua capacidade total de água
+- Despejar água
 
-  O computador deverá ser capaz de :
-- Efutuar as 4 operações matemáticas básicas
-- Anotar um número ou mais
-- Fazer uma leitura se uma divisão é exata ou não
-- Identificar o número anotado
-- Contar números
-
-                        ENTRADAS:
-Tem-se a entrada como um conjunto de n números inteiros positivos.
-                         SAÍDA:
-A saída é algum número da entrada que contiver o maior número de divisores.
-Se houver vários números com essa mesma quantidade de divisores, então a saída pode ser qualquer um deles.
-
-
-Definição de números primos:
-
-- Para um número ser primo ele:
-- Não deve ser divisível por 2 exceto o próprio 2
-- Não deve ser divisível por 3,5 ou 7
-- deve ter apenas dois divisores positivos 
-
-Repita esse processo n-1 vezes
-Dada as entradas de n números deverá fazer a checagem dos divisores de cada n número dessa forma:
-- Divida o número pelo menor primo possível sucessivamente até aquele se tornar em valor 1;
-- Anote todos os números primos usados;
-- Conte quantas vezes cada primo apareceu separadamente;
-- Anote a quantidade de cada;
-- Some 1 a cada quantidade de primos usados;
-- Anote os novos números;
-- Multiplique os novos números para obter o número de divisores dele;
-- Anote o número obtido separadamente;
-
-Compare os números obtidos e identifique o maior entre eles;
-- identifique de qual n número aquele valor foi obtido
-- De como saída esse n número identificado
-- Caso dois n números tenham o mesmo número de divisores dê os dois como saída
-
-
-
-
-
+Algoritmo:
+## Dado que apenas o balde "B" está cheio, o processo será despejar água em "A" e "C" deixando assim apenas 1L em "B", devido as capacidades.
+- Coloque os 3 baldes na ordem "A,B,C"
+- Pegue com as mãos o balde "B" 
+- Com o "B" em mãos despeje a água no "A" até encher a capacidade de água do "A"
+- Com o "B" ainda em mãos despeje a água no "C" até encher a capacidade de água do "C"
+- Devolva o balde "B" com 1L de água  
