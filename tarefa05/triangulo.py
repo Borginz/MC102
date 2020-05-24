@@ -20,7 +20,7 @@ elif b>a and b>c:
             print('retângulo')
         elif b**2 < a**2 + c**2:
             print('acutângulo')
-        elif b**2 < a**2 + c**2:
+        elif b**2 > a**2 + c**2:
             print('obtusângulo')
     else:
         print('não forma triângulo')
