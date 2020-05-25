@@ -5,12 +5,11 @@ Tendo uma lista ( L ), faça a contagem das frequencias que nela aparece, elimin
 L = input().split()
 L2= []
 n = 0
-def(maior_lista):
+
 for i in L:
     i=int(i)
     if i > n:
         n=i
-
 F = [0]*(len(L)+1)
 for i in L:
     i = int(i)
