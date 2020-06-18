@@ -57,9 +57,9 @@ def ordenar_probabilidade(lista,lista2):
 
 
 def devolver_lista(lista):
-     '''Função para devolver a saída da lista em ordem de probabilidade'''
     for i in lista:
-        print(i, end=' ')
+        print(i,end=' ')
+
 
 
 def main():
@@ -71,5 +71,5 @@ def main():
     lista_sem_repeticao = tirar_repeticao(lista_entrada)
     lista_ordem = ordenar_crescente(lista_sem_repeticao)
     ordenar_probabilidade(lista_ordem,frequencia_sem_zeros)
-    devolver_lista(lista_sem_repeticao)
+    devolver_lista(lista_ordem)
 main()
