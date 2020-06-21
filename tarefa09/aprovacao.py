@@ -1,34 +1,28 @@
 
-'''
-Digite o numero de tarefas
-Anote as notas pelo sistema par
-escreva n vezes a quantidade de ida a escola
-de a saída
-
-'''
 def separar_notas(notas):
-    lista2 = []
+    '''Pegar a lista de entrada e anotar apenas as notas para analisar'''
+    lista_notas = []
     for i in range(len(notas)):
         if not i % 2 == 0:
-            lista2.append(notas[i])
-    return lista2
+            lista_notas.append(notas[i])
+    return lista_notas
 def aprovado_notas(notas):
+    '''Fazer a analise referente as notas dos alunos'''
     aprovado_notas = True
     for i in notas:
         if i == 'D':
             aprovado_notas = False
     return aprovado_notas
 def aprovado_frequencia(frequencia,lista):
-    '''Esta função ira comparar a L[1]/len(lista) >= 0.75
+    '''Esta função ira comparar a L[0]/len(lista) >= 0.75
     '''
-    n = len(frequencia)
-    if lista[0]/n >= 0.75:
-        return True
-    else:
-        return False
+
+
+
 
 
 def anotar_frequencia():
+    ''' Função para receber por linha a frequencia do aluno na escola '''
     lista_chamada = []
     while True:
         try:
@@ -51,11 +45,8 @@ def contar_frequencia(lista):
             frequencia[1] += 1
     return frequencia
 
-
-
-
-
 def aprovacao(notas, frequencia):
+    '''função para devovler a saída em relaçao as notas e frequencias'''
     if notas and frequencia == True:
         return ('Aprovadx')
     else:
@@ -66,9 +57,10 @@ def aprovacao(notas, frequencia):
 
 def main():
     entrada_notas = input(' digite as tarefas com notas ').split()
-    entrada_frequencia = anotar_frequencia()
-    lista_frequencia = contar_frequencia(entrada_frequencia)
-    notas = aprovado_notas(entrada_notas)
+    lista_chamada = anotar_frequencia()
+    lista_frequencia = contar_frequencia(lista_chamada)
+    lista_notas = separar_notas(entrada_notas)
+    notas = aprovado_notas(lista_notas)
     frequencia = aprovado_frequencia(entrada_frequencia, lista_frequencia)
     print(aprovacao(notas, frequencia))
 
