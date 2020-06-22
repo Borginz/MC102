@@ -14,8 +14,17 @@ def aprovado_notas(notas):
             aprovado_notas = False
     return aprovado_notas
 def aprovado_frequencia(frequencia,lista):
-    '''Esta função ira comparar a L[0]/len(lista) >= 0.75
-    '''
+    '''Esta função ira comparar a L[0]/len(lista) >= 0.75'''
+    aprovado_frequencia = True
+    n = len(lista)
+    for i in range(1):
+        if frequencia[i]/n >= 0.75:
+            aprovado_frequencia = True
+        else:
+            aprovado_frequencia = False
+    return aprovado_frequencia
+
+
 
 
 
@@ -34,8 +43,7 @@ def anotar_frequencia():
 
 def contar_frequencia(lista):
     '''Anota o tamanho da lista, para cada aprovadx ou reprovadx
-    adiciona numa posição numa nova lista, se L[1]/len(lista)>= 0.75, aprovador
-    caso contrario, reprovadx
+    adiciona numa posição numa nova lista
     '''
     frequencia = [0,0]
     for i in lista:
@@ -46,7 +54,7 @@ def contar_frequencia(lista):
     return frequencia
 
 def aprovacao(notas, frequencia):
-    '''função para devovler a saída em relaçao as notas e frequencias'''
+    '''função para devolver a saída em relaçao as notas e frequencias'''
     if notas and frequencia == True:
         return ('Aprovadx')
     else:
@@ -61,7 +69,7 @@ def main():
     lista_frequencia = contar_frequencia(lista_chamada)
     lista_notas = separar_notas(entrada_notas)
     notas = aprovado_notas(lista_notas)
-    frequencia = aprovado_frequencia(entrada_frequencia, lista_frequencia)
+    frequencia = aprovado_frequencia(lista_frequencia,lista_chamada)
     print(aprovacao(notas, frequencia))
 
 
