@@ -56,9 +56,9 @@ def contar_frequencia(lista):
 def aprovacao(notas, frequencia):
     '''função para devolver a saída em relaçao as notas e frequencias'''
     if notas and frequencia == True:
-        return ('Aprovadx')
+        print('Aprovadx')
     else:
-        return ('Reprovadx')
+        print('Reprovadx')
 
 
 
@@ -70,7 +70,7 @@ def main():
     lista_notas = separar_notas(entrada_notas)
     notas = aprovado_notas(lista_notas)
     frequencia = aprovado_frequencia(lista_frequencia,lista_chamada)
-    print(aprovacao(notas, frequencia))
+    aprovacao(notas, frequencia)
 
 
 main()
