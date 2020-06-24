@@ -29,17 +29,10 @@ def ordenar_listas(lista,lista2):
             elif lista2[i]>lista2[i+1]:
                 aux = lista2[i]
                 aux2 = lista[i]
-                lista2[i] = lista2[i + 1]
-                lista[i] = lista[i + 1]
-                lista2[i + 1] = aux
-                lista[i + 1] = aux2
-
-
-
-
-
-
-
+                lista2[i] = lista2[i+1]
+                lista[i] = lista[i+1]
+                lista2[i+1] = aux
+                lista[i+1] = aux2
 
 
 def devolver_lista(lista):
@@ -51,8 +44,6 @@ def main():
     lista_entrada = [int(x) for x in input().split()]
     lista_sem_repeticao = tirar_repeticao(lista_entrada)
     frequencia = contar_frequencia(lista_entrada, lista_sem_repeticao)
-    print(lista_sem_repeticao)
-    print (frequencia)
     ordenar_listas(lista_sem_repeticao, frequencia)
     devolver_lista(lista_sem_repeticao)
 main()
