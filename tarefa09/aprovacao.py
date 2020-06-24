@@ -26,10 +26,6 @@ def aprovado_frequencia(frequencia,lista):
 
 
 
-
-
-
-
 def anotar_frequencia():
     ''' Função para receber por linha a frequencia do aluno na escola '''
     lista_chamada = []
