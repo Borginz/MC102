@@ -1,13 +1,15 @@
 
 def separar_notas(notas):
-    '''Pega a lista de entrada e anota apenas as notas para analisar'''
+    '''Função para pegar uma lista de tarefas com as notas e separar as
+    ultimas adicionando-as em uma segunda lista de apenas notas'''
     lista_notas = []
     for i in range(len(notas)):
         if not i % 2 == 0:
             lista_notas.append(notas[i])
     return lista_notas
 def aprovado_notas(notas):
-    '''Fazer a analise referente as notas dos alunos'''
+    '''Função para verificar pela lista de notas se o aluno esta aprovado
+    nesse quesito'''
     aprovado_notas = True
     for i in notas:
         if i == 'D':
@@ -15,18 +17,21 @@ def aprovado_notas(notas):
             break
     return aprovado_notas
 def aprovado_frequencia(frequencia,lista):
-    '''Esta função ira comparar a L[0]/len(lista) >= 0.75'''
+    '''Função para verificar pela frequencia se o aluno esta aprovado
+    no critério presença, analisando as presenças sobre o numero total de
+    aulas(que é o tamanho da lista da chamada)'''
     aprovado_frequencia = True
-    n = len(lista)
-    for i in frequencia:
-        if i/n >= 0.75:
+    numero_de_aulas = len(lista)
+    for presença in frequencia:
+        if presença/numero_de_aulas >= 0.75:
             aprovado_frequencia = True
         else:
             aprovado_frequencia = False
     return aprovado_frequencia
 
 def anotar_frequencia():
-    ''' '''
+    ''' Função para receber linha por linha a ausencia ou nao do aluno
+    e adicionar numma lista de chamada'''
     lista_chamada = []
     while True:
         try:
@@ -37,9 +42,8 @@ def anotar_frequencia():
     return lista_chamada
 
 def contar_frequencia(lista):
-    '''Anota o tamanho da lista, para cada aprovadx ou reprovadx
-    adiciona numa posição numa nova lista
-    '''
+    ''' Função para contar quantas vezes o aluno esteve presente numa lista
+    frequencia'''
     frequencia = [0]
     for i in lista:
         if i == 'presente':
@@ -47,7 +51,7 @@ def contar_frequencia(lista):
     return frequencia
 
 def aprovacao(notas, frequencia):
-    '''função para devolver a saída em relaçao as notas e frequencias'''
+    '''Função para devolver a saída correspondente aos critérios de notas e presença'''
     if notas and frequencia:
         print('Aprovadx')
     else:
