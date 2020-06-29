@@ -26,7 +26,7 @@ def aprovado_frequencia(frequencia,lista):
     return aprovado_frequencia
 
 def anotar_frequencia():
-    ''' Função para receber por linha a frequencia do aluno na escola '''
+    ''' '''
     lista_chamada = []
     while True:
         try:
@@ -55,7 +55,7 @@ def aprovacao(notas, frequencia):
 
 
 def main():
-    entrada_notas = input(' digite as tarefas com notas ').split()
+    entrada_notas = input().split()
     lista_chamada = anotar_frequencia()
     lista_frequencia = contar_frequencia(lista_chamada)
     lista_notas = separar_notas(entrada_notas)
