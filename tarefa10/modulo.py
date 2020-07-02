@@ -1,4 +1,11 @@
 def codificar(largura, altura, imagem):
+    with open("imagem.txt") as arquivo:
+        imagem = []
+        for linha in arquivo:
+            linhas = linha.strip()
+            imagem.append(linhas)
+
+
     return codificacao
 
 
