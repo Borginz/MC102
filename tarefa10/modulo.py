@@ -43,6 +43,13 @@ def escrever_imagem_codificada(largura, altura, codificacao, nome_do_arquivo):
 
 def escrever_imagem_decodificada(largura, altura, imagem, nome_do_arquivo):
     with open(nome_do_arquivo, "w") as arquivo:
+        print(P1)
+        print(largura,altura)
+        for elemento in imagem:
+            linha = elemento + "\n"
+            arquivo.write(linha)
+
+
 
 
 
