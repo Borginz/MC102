@@ -12,9 +12,12 @@ def decodificar(largura, altura, codificacao):
 
 
 def carregar_imagem_codificada(nome_do_arquivo):
-
-
-
+    with open(nome_do_arquivo) as arquivo:
+        P1C = arquivo.readline()
+        largura_altura = arquivo.readline().split()
+        largura = largura_altura[0]
+        altura = largura_altura[1]
+        codificacao = arquivo.readline()
     return largura, altura, codificacao
 
 
