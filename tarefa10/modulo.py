@@ -9,7 +9,10 @@ def codificar(largura, altura, imagem):
 
 def decodificar(largura, altura, codificacao):
     imagem = []
-    
+    imagem.append([" "] * largura)
+    for i in range(altura-1):
+        if i < altura:
+            imagem.append(imagem[0])
 
 
 
