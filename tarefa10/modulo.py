@@ -1,18 +1,28 @@
 def codificar(largura, altura, imagem):
+    codificacao = []
+    for i in range(0,len(altura)+1,2):
+        for j in range(1,len(altura)+1,2):
+            for elmnt_impar in imagem[i]:
+                for elmnt_par in imagem[j]:
+                    padrao = elmnt_impar+elmnt_par
+                    contagem = 0
+                    if elmnt_impar+elmnt_par == padrao:
+                        contagem+=1
+                    else:
+                        codificacao.append(padrao,contagem)
+                        padrao = elmnt_impar+elmnt_par
+                        contagem = 0
 
 
 
-
-
-    return codificacao
 
 
 def decodificar(largura, altura, codificacao):
     imagem = []
-    imagem.append([" "] * largura)
+    imagem.append([] * largura)
     for i in range(altura-1):
-        if i < altura:
-            imagem.append(imagem[0])
+        imagem.append(imagem[0])
+
 
 
 
