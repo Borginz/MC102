@@ -1,18 +1,30 @@
 def codificar(largura, altura, imagem):
     codificacao = []
-    imagem = str(imagem)
     for i in range(0,altura,2):
-        for j in range(0,altura,2):
-            for k in range(largura - 1):
-                padrao = imagem[i][k] + imagem[j][k]
-                contagem = 1
-                if imagem[i][k+1] + imagem[j][k+1] == padrao:
+        for k in range(largura):
+            padrao = imagem[i][k]+imagem[i+1][k]
+            contagem = 0
+            if imagem[i][k]+imagem[i+1][k] == padrao:
+                if not  k == largura-1:
                     contagem += 1
-                else:
-                    codificacao.append(contagem)
-                    codificacao.append(padrao)
-                    padrao = imagem[i][k + 1] + imagem[j][k + 1]
-                    contagem = 1
+                elif k == largura-1:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
