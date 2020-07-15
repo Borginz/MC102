@@ -1,28 +1,63 @@
 def codificar(largura, altura, imagem):
     codificacao = []
-    for i in range(0,altura,2):
+    padrao = imagem[0][0] + imagem[1][0]
+    contagem = 0
+    for i in range(0, altura, 2):
         for k in range(largura):
-            padrao = imagem[i][k]+imagem[i+1][k]
-            contagem = 0
-            if imagem[i][k]+imagem[i+1][k] == padrao:
-                if not  k == largura-1:
+            if imagem[i][k] + imagem[i + 1][k] == padrao:
+                if k == largura - 1 and i < altura - 2:
+                    if imagem[i][k] + imagem[i + 1][k] == imagem[i + 2][k] + imagem[i + 3][k]:
+                        codificacao.append(contagem)
+                        codificacao.append(padrao)
+                        padrao = imagem[i + 2][k] + imagem[i + 3][k]
+                        contagem = 0
+                else:
                     contagem += 1
-                elif k == largura-1:
+
+
+
+
+            else:
+                codificacao.append(contagem)
+                codificacao.append(padrao)
+                contagem = 1
+                padrao = imagem[i][k] + imagem[i + 1][k]
+    return codificacao
+
+
+
+
 
 
 
 
 def decodificar(largura, altura, codificacao):
     imagem = []
-    imagem.append([] * largura)
-    for i in range(altura-1):
-        imagem.append(imagem[0])
+    contagem = 0
+    for k in range(0,altura,2):
+        for j in range(largura):
+            while contagem < codificacao
+
+
+
+
+
+
+
+
+
 
 
 
 
 
     return imagem
+
+
+
+
+
+
 
 
 def carregar_imagem_codificada(nome_do_arquivo):

@@ -1,6 +1,8 @@
-imagem = [[0, 0, 0, 0, 0, 0, 0, 0], [1, 1, 1, 1, 0, 0, 0, 0], [1, 1, 1, 1, 1, 1, 1, 1],
-              [1, 1, 1, 1, 1, 1, 1, 1], [1, 1, 1, 1, 1, 1, 1, 1], [1, 1, 1, 1, 1, 1, 1, 1]]
-padrao = imagem[0][1],imagem[0][1]
-print(padrao)
-for i in range(0,6,2):
-    print(i)
+def decodificacao:
+    i = 0
+    j = 1
+    x = 0
+    L = 0
+    k = 0
+    imagem = []
+    for L in range()
