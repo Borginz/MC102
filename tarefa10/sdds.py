@@ -7,8 +7,8 @@ def decodificar(largura, altura, codificacao):
     multiplicador = 0
     for k in range(0, altura, 2):
         for j in range(largura):
-            imagem[k].append(str(imagem_codificacao[(multiplicador * largura)+j][0]))
-            imagem[k+1].append(str(imagem_codificacao[(multiplicador * largura)+j][1]))
+            imagem[k].append(imagem_codificacao[(multiplicador * largura)+j][0])
+            imagem[k+1].append(imagem_codificacao[(multiplicador * largura)+j][1])
         multiplicador += 1
     return imagem
 
