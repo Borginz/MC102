@@ -2,7 +2,22 @@ from modulo import *
 
 
 def destacar_bordas(largura, altura, imagem):
-    pass
+    nova_imagem = []
+    for _ in range(altura):
+        nova_imagem.append([])
+    for i in range(altura):
+        for j in range(largura):
+            if j == 0 or i == 0 or j == altura - 1 or i == largura - 1:
+                nova_imagem[i].append(imagem[i][j])
+            else:
+                if imagem[i][j] == '1':
+                    if imagem[i-1][j] == '0' or imagem[i+1][j] == '0' or imagem[i][j-1] == '0' or imagem[i][j+1] == '0' or imagem[i+1][j+1] == '0' or imagem[i+1][j-1] == '0' or imagem[i-1][j+1] == '0' or imagem[i-1][j-1] == '0':
+                        nova_imagem[i].append('1')
+                    else:
+                        nova_imagem[i].append('0')
+                else:
+                    nova_imagem[i].append('0')
+    return nova_imagem
 
 
 def main():
