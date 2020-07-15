@@ -1,4 +1,4 @@
-'''def codificar(largura, altura, imagem):
+'''  def codificar(largura, altura, imagem):
     lista_codificacao = []
     for g in range(0, altura, 2):
         for w in range(largura):
@@ -125,3 +125,5 @@ def escrever_imagem_decodificada(largura, altura, imagem, nome_do_arquivo):
                 arquivo.write(str(elemento))
             if i != (altura-1):
                 arquivo.write("\n")
+
+
