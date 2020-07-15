@@ -91,7 +91,7 @@ def carregar_imagem_decodificada(nome_do_arquivo):
 
 
 def escrever_imagem_codificada(largura, altura, codificacao, nome_do_arquivo):
-    with open(nome_do_arquivo, "w" ) as arquivo:
+    with open(nome_do_arquivo, "w") as arquivo:
         print("P1C")
         print(largura,altura)
         print(codificacao)
