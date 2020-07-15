@@ -1,28 +1,34 @@
 def codificar(largura, altura, imagem):
+    lista_codificacao = []
+    for g in range(0, altura, 2):
+        for w in range(largura):
+            lista_codificacao.append(imagem[g][w] + imagem[g + 1][w])
+    padrao = lista_codificacao[0]
     codificacao = []
-    padrao = imagem[0][0] + imagem[1][0]
     contagem = 0
-    for i in range(0, altura, 2):
-        for k in range(largura):
-            if imagem[i][k] + imagem[i + 1][k] == padrao:
-                if k == largura - 1 and i < altura - 2:
-                    if imagem[i][k] + imagem[i + 1][k] == imagem[i + 2][k] + imagem[i + 3][k]:
-                        codificacao.append(contagem)
-                        codificacao.append(padrao)
-                        padrao = imagem[i + 2][k] + imagem[i + 3][k]
-                        contagem = 0
-                else:
+    for i in range(len(lista_codificacao)):
+        if lista_codificacao[i] == padrao:
+            if i == len(lista_codificacao) - 1:
+                if lista_codificacao[i] == padrao:
                     contagem += 1
-
-
-
-
+                    codificacao.append(contagem)
+                    codificacao.append(padrao)
+                else:
+                    codificacao.append(contagem)
+                    codificacao.append(padrao)
+                    contagem = 1
+                    padrao = lista_codificacao[i]
+                    codificacao.append(contagem)
+                    codificacao.append(padrao)
             else:
-                codificacao.append(contagem)
-                codificacao.append(padrao)
-                contagem = 1
-                padrao = imagem[i][k] + imagem[i + 1][k]
-    return codificacao
+                contagem += 1
+        else:
+            codificacao.append(contagem)
+            codificacao.append(padrao)
+            contagem = 1
+            padrao = lista_codificacao[i]
+
+    return lista_codificacao, codificacao
 
 
 
@@ -44,20 +50,6 @@ def decodificar(largura, altura, codificacao):
             imagem[k+1].append(imagem_codificacao[multiplicador*largura+j][1])
         multiplicador+=1
     return imagem
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     return imagem
@@ -103,10 +95,6 @@ def escrever_imagem_decodificada(largura, altura, imagem, nome_do_arquivo):
         for elemento in imagem:
             linha = elemento + "\n"
             arquivo.write(linha)
-
-
-
-
 
 
 
