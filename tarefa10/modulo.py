@@ -32,21 +32,19 @@ def codificar(largura, altura, imagem):
 
 
 def decodificar(largura, altura, codificacao):
-    imagem = []
-    for _ in range(altura):
-        l = [] # linha começa vazia
-        for _ in range(largura):
-            l.append(" ")#preenche colunas da linha
-        imagem.append(l)
-    indice = 0
-    contador = 0
-    for i in range(0,altura,2):
-        for k in range(largura):
-            if contador < codificacao[indice]:
-                imagem[i][k] = codificacao[indice+1][0]
-                imagem[i+1][k] = codificacao[indice+1][1]
-                contador+=1
-            else:
+    imagem = [[] for _ in range(altura)]
+    imagem_codificacao = []
+    for i in range(0,codificacao,2):
+        imagem_codificacao.append(codificacao[i])
+    multiplicador = 0
+    for k in range(0,altura,2):
+        for j in range(largura):
+            imagem[k].append((imagem_codificacao[multiplicador*largura + j][0]))
+            imagem[k+1].append((imagem_codificacao[multiplicador*largura + j][1]))
+        multiplicador+=1
+    return imagem
+
+
 
 
 
