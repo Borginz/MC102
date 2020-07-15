@@ -7,7 +7,7 @@ def destacar_bordas(largura, altura, imagem):
         nova_imagem.append([])
     for i in range(altura):
         for j in range(largura):
-            if j == 0 or i == 0 or j == altura - 1 or i == largura - 1:
+            if i == 0 or j == 0 or i == altura - 1 or j == largura - 1:
                 nova_imagem[i].append(imagem[i][j])
             else:
                 if imagem[i][j] == '1':
@@ -35,3 +35,6 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+
+  
