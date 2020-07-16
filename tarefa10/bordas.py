@@ -2,21 +2,19 @@ from modulo import *
 
 
 def destacar_bordas(largura, altura, imagem):
-    nova_imagem = []
-    for _ in range(altura):
-        nova_imagem.append([])
-    for i in range(altura):
-        for j in range(largura):
-            if i == 0 or j == 0 or i == altura - 1 or j == largura - 1:
-                nova_imagem[i].append(imagem[i][j])
+    nova_imagem = [[] for _ in range(altura)]
+    for k in range(altura):
+        for u in range(largura):
+            if k == 0 or k == altura-1 or u == 0 or u == largura-1:
+                nova_imagem[k].append(imagem[k][j])
             else:
-                if imagem[i][j] == '1':
-                    if imagem[i-1][j] == '0' or imagem[i+1][j] == '0' or imagem[i][j-1] == '0' or imagem[i][j+1] == '0' or imagem[i+1][j+1] == '0' or imagem[i+1][j-1] == '0' or imagem[i-1][j+1] == '0' or imagem[i-1][j-1] == '0':
-                        nova_imagem[i].append('1')
+                if imagem[k][u] == '1':
+                    if imagem[k+1][u] == '0' or imagem[k-1][u] == '0' or imagem[k][u+1] == '0' or imagem[k][u-1] == '0' or imagem[k+1][u+1] == '0' or imagem[k-1][u-1] == '0' or imagem[k+1][u-1] == '0' or imagem[k-1][u+1] == '0'
+                        nova_imagem[k].append('1')
                     else:
-                        nova_imagem[i].append('0')
+                        nova_imagem[k].append('0')
                 else:
-                    nova_imagem[i].append('0')
+                    nova_imagem[k].append('0')
     return nova_imagem
 
 
