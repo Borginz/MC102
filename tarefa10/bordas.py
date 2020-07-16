@@ -9,7 +9,7 @@ def destacar_bordas(largura, altura, imagem):
                 nova_imagem[k].append(imagem[k][u])
             else:
                 if imagem[k][u] == '1':
-                    if imagem[k+1][u] == '0' or imagem[k-1][u] == '0' or imagem[k][u+1] == '0' or imagem[k][u-1] == '0' or imagem[k+1][u+1] == '0' or imagem[k-1][u-1] == '0' or imagem[k+1][u-1] == '0' or imagem[k-1][u+1] == '0'
+                    if imagem[k+1][u] == '0' or imagem[k-1][u] == '0' or imagem[k][u+1] == '0' or imagem[k][u-1] == '0' or imagem[k+1][u+1] == '0' or imagem[k-1][u-1] == '0' or imagem[k+1][u-1] == '0' or imagem[k-1][u+1] == '0':
                         nova_imagem[k].append('1')
                     else:
                         nova_imagem[k].append('0')
