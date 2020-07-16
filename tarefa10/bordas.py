@@ -6,7 +6,7 @@ def destacar_bordas(largura, altura, imagem):
     for k in range(altura):
         for u in range(largura):
             if k == 0 or k == altura-1 or u == 0 or u == largura-1:
-                nova_imagem[k].append(imagem[k][j])
+                nova_imagem[k].append(imagem[k][u])
             else:
                 if imagem[k][u] == '1':
                     if imagem[k+1][u] == '0' or imagem[k-1][u] == '0' or imagem[k][u+1] == '0' or imagem[k][u-1] == '0' or imagem[k+1][u+1] == '0' or imagem[k-1][u-1] == '0' or imagem[k+1][u-1] == '0' or imagem[k-1][u+1] == '0'
