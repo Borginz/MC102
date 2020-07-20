@@ -48,39 +48,36 @@ def ordenar_frequencia(lista_frequencia):
     lista_frequencia.remove((0,"palavra0"))
     return lista_frequencia
 def pegar_frequentes(lista):
-    return [lista[0][1],lista[2][1],lista[3][1]]
+    return [lista[0][0],lista[2][0],lista[3][0]]
 
+def obter_do_quartil(lista):
+    lista_quartil = []
+    for idx in range(len(lista)):
+        if palavra[idx][0] >= 5:
+            lista_quartil.append(palavra[idx][0])
+        else:
+            break
+    return lista_quartil
 
+def calcular_frequencia_quartil(lista):
+    idx = len(lista)//4 - 1
+    contador = 0
+    for k in range(len(lista)):
+        if palavra[k][0]>=lista[idx][0]:
+            contador += 1
+        else:
+            break
+    return contador
 
+def contar_alem(lista,x):
+    return [lista[x][0],lista[x+1][0],lista[x+2][0]]
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+def mostrar_saida(palavras_frequentes, maiores_quartil,palavras_alem):
+    for palavra in palavras_frequentes:
+        print(palavra, end = ' ')
+    print(maiores_quartil)
+    for palavra_alem in palavras_alem:
+        print(palavra_alem, end = ' ')
 
 
 
@@ -93,5 +90,12 @@ def main():
     lista_frequencia = contar_frequencia(texto_filtrado)
     lista_ordem = ordenar_frequencia(lista_frequencia)
     palavras_frequentes = pegar_frequentes(lista_ordem)
+    maiores_quartil = obter_do_quartil(lista_ordem)
+    frequencia_quartil = calcular_frequencia_quartil(lista_ordem)
+    palavras_alem = contar_alem(lista_ordem, frequencia_quartil)
+    mostrar_saida(palavras_frequentes, maiores_quartil,palavras_alem)
+
+main()
+
 
 
