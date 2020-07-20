@@ -47,7 +47,8 @@ def ordenar_frequencia(lista_frequencia):
             contador = k+1
     lista_frequencia.remove((0,"palavra0"))
     return lista_frequencia
-
+def pegar_frequentes(lista):
+    return [lista[0][1],lista[2][1],lista[3][1]]
 
 
 
@@ -90,6 +91,7 @@ def main():
     texto = ler_arquivo(arquivo)
     texto_filtrado = filtrar_texto(texto, stop_words)
     lista_frequencia = contar_frequencia(texto_filtrado)
-    frequencia_ordem = ordenar_frequencia(lista_frequencia)
+    lista_ordem = ordenar_frequencia(lista_frequencia)
+    palavras_frequentes = pegar_frequentes(lista_ordem)
 
 
