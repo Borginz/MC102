@@ -7,7 +7,7 @@ def ler_arquivo(nome_do_arquivo):
     texto = []
     with open(nome_do_arquivo, 'r', encoding='utf-8'):
         for linha in arquivo:
-            palavras = linha.strip().splip()
+            palavras = linha.strip().split()
             for idx in range(len(palavras)):
                 texto.append(palavras[idx])
 def filtrar_texto(texto, stop_words):
@@ -37,6 +37,44 @@ def freq_individual(palavra,texto):
             contagem += 1
     return contagem
 
+def ordenar_frequencia(lista_frequencia):
+    lista_frequencia.sort(key = lambda x:x[0], reverse = True)
+    lista_frequencia.append((0,"palavra0"))
+    contador = 0
+    for k in range(len(lista_frequencia)-1):
+        if lista_frequencia[k][1]!= lista_frequencia[k+1][1]:
+            lista_frequencia[contador:k+1] = sorted(lista_frequencia[contador:k+1])
+            contador = k+1
+    lista_frequencia.remove((0,"palavra0"))
+    return lista_frequencia
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -51,4 +89,7 @@ def main():
     arquivo, stop_words = ler_entrada()
     texto = ler_arquivo(arquivo)
     texto_filtrado = filtrar_texto(texto, stop_words)
-    frequencia = contar_frequencia(texto_filtrado)
+    lista_frequencia = contar_frequencia(texto_filtrado)
+    frequencia_ordem = ordenar_frequencia(lista_frequencia)
+
+
