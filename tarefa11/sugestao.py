@@ -44,13 +44,13 @@ def obter_maximo(dict):
     for palavra in dict.keys():
         if dict[palavra] == maior:
             lista_maiores.append(palavra)
-        lista_maiores.sort()
+    lista_maiores.sort()
     return lista_maiores[0]
 
 def gerar_saida(pares,dict):
     elemento_maximo = obter_maximo(dict)
     for palavra in pares:
-        print(palavra+' '+elemento_maximo)
+        print(palavra,elemento_maximo)
 
 
 
