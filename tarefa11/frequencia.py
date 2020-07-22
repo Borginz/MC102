@@ -93,6 +93,7 @@ def mostrar_saida(palavras_frequentes, maiores_quartil, palavras_alem):
     print(maiores_quartil)
     for palavra_alem in palavras_alem:
         print(palavra_alem, end=' ')
+    print()
 
 
 def remover_pontuacao(palavra):
