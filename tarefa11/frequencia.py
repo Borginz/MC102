@@ -86,13 +86,11 @@ def contar_alem(lista, x):
     return [lista[x][0], lista[x + 1][0], lista[x + 2][0]]
 
 
-def mostrar_saida(palavras_frequentes, maiores_quartil, palavras_alem):
-    for palavra in palavras_frequentes:
-        print(palavra, end=' ')
-    print()
-    print(maiores_quartil)
-    for palavra_alem in palavras_alem:
-        print(palavra_alem, end=' ')
+def mostrar_saida(tuplas_ordem, x, tuplas_quartil):
+    linha1 = tuplas_ordem[0][0]+' '+tuplas_ordem[1][0]+' '+tuplas_ordem[2][0]
+    linha2 = x
+    linha3 = tuplas_quartil[x][0]+' '+tuplas_quartil[x + 1][0]+' '+ tuplas_quartil[x + 2][0]
+    print(f"{linha1}\n{linha2}\n{linha3}")
     print()
 
 
@@ -111,9 +109,10 @@ def main():
     texto_filtrado = filtrar_texto(texto, stop_words)
     dict_frequencia = contar_frequencia(texto_filtrado)
     tuplas_ordem = ordenar_frequencia(dict_frequencia)
-    palavras_frequentes = pegar_frequentes(tuplas_ordem)
+    #palavras_frequentes = pegar_frequentes(tuplas_ordem)
     tuplas_quartil = obter_do_quartil(tuplas_ordem)
     frequencia_quartil = calcular_frequencia_quartil(tuplas_quartil)
-    palavras_alem = contar_alem(tuplas_quartil, frequencia_quartil)
-    mostrar_saida(palavras_frequentes, frequencia_quartil, palavras_alem)
+    #palavras_alem = contar_alem(tuplas_quartil, frequencia_quartil)
+    mostrar_saida(tuplas_ordem, frequencia_quartil, tuplas_quartil)
+main()
 
