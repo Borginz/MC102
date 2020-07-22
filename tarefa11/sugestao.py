@@ -4,30 +4,21 @@ def ler_entrada():
     while True:
         try:
             par = input().split()
-            lista_pares.append(par)
-        except EOFEerror:
+            lista_pares.append((par[0]),par(1))
+        except EOFError:
             break
     return arquivo, lista_pares
 
-def ler_arquivo(nome_arquivo):
+def ler_arquivo(nome_do_arquivo):
     texto = []
-    with open(nome_arquivo, 'r', encoding='utf-8'):
+    with open(nome_do_arquivo, 'r', encoding='utf-8') as arquivo:
         for linha in arquivo:
             palavras = linha.strip().split()
             for idx in range(len(palavras)):
                 texto.append(palavras[idx])
+    return texto
 
-def filtrar_texto(texto):
-    texto_sem_stop = []
-    texto_filtrado = []
-    pontuacao = ['!', '!\n', '?', ' ?\n', '.\n', ',', '.', ':', '"', ';']
-    for palavra in texto:
-        if palavra not in stop_words:
-            texto_sem_stop.append(texto_filtrado)
-    for filtrada in texto_sem_stop:
-        if filtrada not in texto_sem_stop:
-            texto_filtrado.append(filtrada)
-    return texto_filtrado
+
 def obter_freq(texto,pares):
     dict_freq = dict()
     for k in range(len(texto)-2):
@@ -37,20 +28,40 @@ def obter_freq(texto,pares):
             else:
                 dict_freq[texto[k+2]]+= 1
     return dict_freq
+def remover_pontuacao(palavra):
+    pontuacao = ",.;:?!''"
+    palavra_certa = ""
+    for letras in palavra:
+        if letras not in pontuacao:
+            palavra_certa += letras
+    return palavra_certa
 
-def obter_maximo(dict):
-    maior = max(dict, key = lambda chave: len(dict[chave]))
-    lista_maiores = []
-    for palavra in dict.keys():
-        if dict[palavra] == maior:
-            lista_maiores.append(palavra)
-    lista_maiores.sort()
-    return lista_maiores[0]
 
-def gerar_saida(pares,dict):
-    elemento_maximo = obter_maximo(dict)
-    for palavra in pares:
-        print(palavra,elemento_maximo)
+def filtrar_texto(texto):
+    texto_filtrado = []
+    for palavras in texto:
+        palavras = palavras.lower()
+        palavra_certa = remover_pontuacao(palavras)
+        texto_filtrado.append(palavra_certa)
+    return texto_filtrado
+
+
+def obter_maior(dict):
+    lista_tuplas = []
+    for k,v in dict.items():
+        lista_tuplas.append((k,v))
+    lista_tuplas.sort(key=lambda x:x[1], reverse= True)
+    maior = lista_tuplas[0]
+    return maior
+
+
+
+def gerar_saida(pares,texto_filtrado):
+    for par in pares:
+        dict_freq = obter_freq(par,texto_filtrado)
+        maior = obter_maior(dict_freq)
+        print(par,maior)
+
 
 
 
@@ -59,10 +70,9 @@ def gerar_saida(pares,dict):
 
 def main():
     nome_arquivo, lista_pares = ler_entrada()
-    texto = ler_arquivo(arquivo)
+    texto = ler_arquivo(nome_arquivo)
     texto_filtrado = filtrar_texto(texto)
-    dict_freq = obter_freq(texto_filtrado,lista_pares)
-    obter_maximo(lista_pares,dict_freq)
-    gerar_saida(lista_pares)
+    gerar_saida(lista_pares,texto_filtrado)
+
 
 main()
