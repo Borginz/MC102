@@ -68,7 +68,7 @@ def gerar_saida(pares,texto_filtrado):
     for par in pares:
         dict_freq = obter_freq(par,texto_filtrado)
         frequente = obter_maior(dict_freq)
-        print(par,frequente)
+        print(par+' '+frequente)
 
 
 
