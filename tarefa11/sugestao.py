@@ -3,8 +3,8 @@ def ler_entrada():
     lista_pares = []
     while True:
         try:
-            par = input().split()
-            lista_pares.append((par[0]),par(1))
+            par = input()
+            lista_pares.append(par)
         except EOFError:
             break
     return arquivo, lista_pares
@@ -21,8 +21,9 @@ def ler_arquivo(nome_do_arquivo):
 
 def obter_freq(texto,pares):
     dict_freq = dict()
+    par = pares.split()
     for k in range(len(texto)-2):
-        if pares[0]==texto[k] and pares[1]==texto[k+1]:
+        if par[0]==texto[k] and par[1]==texto[k+1]:
             if texto[k+2] not in dict_freq:
                 dict_freq[texto[k+2]] = 1
             else:
@@ -47,20 +48,27 @@ def filtrar_texto(texto):
 
 
 def obter_maior(dict):
-    lista_tuplas = []
-    for k,v in dict.items():
-        lista_tuplas.append((k,v))
-    lista_tuplas.sort(key=lambda x:x[1], reverse= True)
-    maior = lista_tuplas[0]
-    return maior
+    tuplas = []
+    lista_maiores = []
+    for k, v in dict.items():
+        tuplas.append((k, v))
+    tuplas.sort(key=lambda x: x[1])
+    maior = tuplas[0][1]
+    for elemento in tuplas:
+        if elemento[1] == maior:
+            lista_maiores.append(elemento[0])
+    lista_maiores.sort()
+    return lista_maiores[0]
+
+
 
 
 
 def gerar_saida(pares,texto_filtrado):
     for par in pares:
         dict_freq = obter_freq(par,texto_filtrado)
-        maior = obter_maior(dict_freq)
-        print(par,maior)
+        frequente = obter_maior(dict_freq)
+        print(par,frequente)
 
 
 
