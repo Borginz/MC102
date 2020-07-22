@@ -22,6 +22,7 @@ def filtrar_texto(texto):
 
 
 
+
 def main():
     texto = ['caramba.','cachorro?','coelho','coelho','cachorro.','alce']
     texto_filtrado = filtrar_texto(texto)

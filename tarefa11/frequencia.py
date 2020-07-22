@@ -44,22 +44,25 @@ def freq_individual(palavra, texto):
             contagem += 1
     return contagem
 
-
-def ordenar_frequencia(dict_frequencia):
-    dict_frequencia.sort(key=lambda x: x[0], reverse=True)
-    dict_frequencia.append((0, "palavra0"))
+def ordenar_frequencia(dict):
+    tuplas = []
+    for k, v in dict.items():
+        tuplas.append((k, v))
+    tuplas.sort(key=lambda x: x[1], reverse=True)
+    tuplas.append((0, "palavra0"))
     contador = 0
-    for k in range(len(lista_frequencia) - 1):
-        if lista_frequencia[k][1] != lista_frequencia[k + 1][1]:
-            lista_frequencia[contador:k + 1] = sorted(lista_frequencia[contador:k + 1])
+    for k in range(len(tuplas) - 1):
+        if tuplas[k][0] != tuplas[k + 1][0]:
+            tuplas[contador:k + 1] = sorted(tuplas[contador:k + 1])
             contador = k + 1
-    lista_frequencia.remove((0, "palavra0"))
-    print("lista_frequencia =", lista_frequencia)
-    return lista_frequencia
+    tuplas.remove((0, "palavra0"))
+    return tuplas
 
 
-def pegar_frequentes(lista):
-    return [lista[0][1], lista[2][1], lista[3][1]]
+
+
+def pegar_frequentes(tuplas):
+    return [tuplas[0][0], tuplas[1][0], tuplas[2][0]]
 
 
 def obter_do_quartil(lista):
@@ -109,25 +112,15 @@ def main():
     texto = ler_arquivo(arquivo)
     texto_filtrado = filtrar_texto(texto, stop_words)
     dict_frequencia = contar_frequencia(texto_filtrado)
-    lista_ordem = ordenar_frequencia(dict_frequencia)
-    palavras_frequentes = pegar_frequentes(lista_ordem)
-    maiores_quartil = obter_do_quartil(lista_ordem)
-    frequencia_quartil = calcular_frequencia_quartil(lista_ordem)
-    palavras_alem = contar_alem(lista_ordem, frequencia_quartil)
+    tuplas_ordem = ordenar_frequencia(dict_frequencia)
+    palavras_frequentes = pegar_frequentes(tuplas_ordem)
+    print(palavras_frequentes)
+    maiores_quartil = obter_do_quartil(tuplas_ordem)
+    frequencia_quartil = calcular_frequencia_quartil(tuplas_ordem)
+    palavras_alem = contar_alem(tuplas_ordem, frequencia_quartil)
     mostrar_saida(palavras_frequentes, maiores_quartil, palavras_alem)
 
 
 main()
 
-'''def ordenar_frequencia(dict_frequencia):
-    dict_frequencia.sort(key=lambda x: x[0], reverse=True)
-    dict_frequencia.append((0, "palavra0"))
-    contador = 0
-    for k in range(len(lista_frequencia) - 1):
-        if lista_frequencia[k][1] != lista_frequencia[k + 1][1]:
-            lista_frequencia[contador:k + 1] = sorted(lista_frequencia[contador:k + 1])
-            contador = k + 1
-    lista_frequencia.remove((0, "palavra0"))
-    print("lista_frequencia =", lista_frequencia)
-    return lista_frequencia'''
 
