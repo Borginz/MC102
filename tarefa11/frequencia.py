@@ -1,6 +1,6 @@
 def ler_entrada():
     arquivo_txt = input()
-    stop_words = input().strip()
+    stop_words = input().split()
     return arquivo_txt, stop_words
 
 
@@ -16,15 +16,16 @@ def ler_arquivo(nome_do_arquivo):
 
 def filtrar_texto(texto, stop_words):
     texto_sem_stop = []
-    for palavra in texto:
+    texto_filtrado = []
+    for palavras in texto:
+        palavras = palavras.lower()
+        palavra_certa = remover_pontuacao(palavras)
+        texto_filtrado.append(palavra_certa)
+    for palavra in texto_filtrado:
         if palavra not in stop_words:
             texto_sem_stop.append(palavra)
-    texto_filtrado = []
-    for palavras in texto_sem_stop:
-        palavra_certa = remover_pontuacao(palavras)
-        palavra_certa = palavra_certa.lower()
-        texto_filtrado.append(palavra_certa)
-    return texto_filtrado
+
+    return texto_sem_stop
 
 
 def contar_frequencia(texto):
@@ -44,55 +45,51 @@ def freq_individual(palavra, texto):
             contagem += 1
     return contagem
 
+
 def ordenar_frequencia(dict):
     tuplas = []
     for k, v in dict.items():
         tuplas.append((k, v))
+    tuplas.sort(key=lambda x: x[0])
     tuplas.sort(key=lambda x: x[1], reverse=True)
-    tuplas.append((0, "palavra0"))
-    contador = 0
-    for k in range(len(tuplas) - 1):
-        if tuplas[k][0] != tuplas[k + 1][0]:
-            tuplas[contador:k + 1] = sorted(tuplas[contador:k + 1])
-            contador = k + 1
-    tuplas.remove((0, "palavra0"))
     return tuplas
-
-
 
 
 def pegar_frequentes(tuplas):
     return [tuplas[0][0], tuplas[1][0], tuplas[2][0]]
 
 
-def obter_do_quartil(lista):
+def obter_do_quartil(tupla):
     lista_quartil = []
-    for idx in range(len(lista)):
-        if lista[idx][0] >= 5:
-            lista_quartil.append(lista[idx][0])
+    for idx in range(len(tupla)):
+        if tupla[idx][1] > 5:
+            lista_quartil.append(tupla[idx])
         else:
             break
     return lista_quartil
 
 
-def calcular_frequencia_quartil(lista):
-    idx = len(lista) // 4 - 1
-    contador = 0
-    for k in range(len(lista)):
-        if lista[k][0] >= lista[idx][0]:
-            contador += 1
+def calcular_frequencia_quartil(tupla):
+    n = len(tupla)
+    Q1 = round(0.25 * (n + 1))
+    pos_quartil = tupla[Q1:]
+    idx = Q1
+    for k in range(len(pos_quartil)):
+        if pos_quartil[k][1] == tupla[Q1 - 1][1]:
+            idx += 1
         else:
             break
-    return contador
+    return idx
 
 
 def contar_alem(lista, x):
-    return [lista[x][1], lista[x + 1][1], lista[x + 2][1]]
+    return [lista[x][0], lista[x + 1][0], lista[x + 2][0]]
 
 
 def mostrar_saida(palavras_frequentes, maiores_quartil, palavras_alem):
     for palavra in palavras_frequentes:
         print(palavra, end=' ')
+    print()
     print(maiores_quartil)
     for palavra_alem in palavras_alem:
         print(palavra_alem, end=' ')
@@ -114,13 +111,8 @@ def main():
     dict_frequencia = contar_frequencia(texto_filtrado)
     tuplas_ordem = ordenar_frequencia(dict_frequencia)
     palavras_frequentes = pegar_frequentes(tuplas_ordem)
-    print(palavras_frequentes)
-    maiores_quartil = obter_do_quartil(tuplas_ordem)
-    frequencia_quartil = calcular_frequencia_quartil(tuplas_ordem)
-    palavras_alem = contar_alem(tuplas_ordem, frequencia_quartil)
-    mostrar_saida(palavras_frequentes, maiores_quartil, palavras_alem)
-
-
-main()
-
+    tuplas_quartil = obter_do_quartil(tuplas_ordem)
+    frequencia_quartil = calcular_frequencia_quartil(tuplas_quartil)
+    palavras_alem = contar_alem(tuplas_quartil, frequencia_quartil)
+    mostrar_saida(palavras_frequentes, frequencia_quartil, palavras_alem)
 
