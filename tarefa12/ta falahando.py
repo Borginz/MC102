@@ -5,29 +5,26 @@ def inicializar_agenda(nome_arquivo):
     with open(nome_arquivo, 'w') as arquivo:
         print(f'Uma agenda vazia "{nome_arquivo}" foi criada!')
 
+
 def escrever_arquivo(agenda, nome_arquivo):
-    with open(nome_arquivo,'w',encoding='utf-8') as arquivo:
+    with open(nome_arquivo, 'w') as arquivo:
         for evento in agenda:
             i = evento
             nome = agenda[evento][0]
             descricao = agenda[evento][1]
             data = agenda[evento][2]
             hora = agenda[evento][3]
-            arquivo.write(str(i)+','+nome+','+descricao+','+data+','+hora)
+            arquivo.write(str(i) + ',' + nome + ',' + descricao + ',' + data + ',' + hora)
 
 
+# open com "w"
+# for evento na agenda
+# escreve o número (chave do dict)
+# for elemento na lista (depende se vocÊ quer um for ou n)
+# escreve as coisas nome,data,hora,etc...
 
-
-
-  # open com "w"
-    # for evento na agenda
-      # escreve o número (chave do dict)
-      # for elemento na lista (depende se vocÊ quer um for ou n)
-      # escreve as coisas nome,data,hora,etc...
-
-      # evento, nome, descrição, data hora
-      # 0, MC102, "aula de MC102", 24/06/2020, 14:00
-
+# evento, nome, descrição, data hora
+# 0, MC102, "aula de MC102", 24/06/2020, 14:00
 
 
 def ler_arquivo(agenda_csv):
@@ -56,7 +53,8 @@ def listar_agenda(agenda, data):
             print(f"Hora: {evento[4]}")
             print(47 * "-")
     else:
-        print(f"Não existem eventos para o dia {data}!")
+        print(f"Não existem eventos na data {data}")
+
 
 def alterar(agenda, evento, nome, descricao, data, hora):
     lista_alteracoes = agenda[evento]
@@ -80,7 +78,6 @@ def criar_evento(agenda, nome, descricao, data, hora):
     adiciono na posição no dict com valor 1 e
     as informações seguintes'''
 
-
     if len(agenda) == 0:
         agenda[1] = [nome, descricao, data, hora]
 
@@ -99,13 +96,13 @@ def receber_argumentos():
     parser = argparse.ArgumentParser()
     '''Adicionar os argumentos que serão usados '''
     parser.add_argument('-a', '--agenda', help="argumento para executar o arquivo",
-    required = True)
+                        required=True)
     parser.add_argument('operacao', help="operacoes que queremos realizar na agenda")
     parser.add_argument('--evento', help='mostra qual o evento', type=int)
-    parser.add_argument('--nome', help='mostra o nome do evento',default='')
-    parser.add_argument('--descricao', help='descricao do evento',default='')
-    parser.add_argument('--data', help='data do evento',default='')
-    parser.add_argument('--hora', help='hora do evento',default='')
+    parser.add_argument('--nome', help='mostra o nome do evento')
+    parser.add_argument('--descricao', help='descricao do evento')
+    parser.add_argument('--data', help='data do evento')
+    parser.add_argument('--hora', help='hora do evento')
     args = parser.parse_args()
     return args
 
@@ -128,7 +125,6 @@ def main():
             escrever_arquivo(agenda, args.agenda)
         elif args.operacao == 'listar':
             listar_agenda(agenda, data)
-
 
 
 main()
