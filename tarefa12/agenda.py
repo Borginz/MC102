@@ -5,6 +5,17 @@ def inicializar_agenda(nome_arquivo):
     with open(nome_arquivo, 'w') as arquivo:
         print(f'Uma agenda vazia "{nome_arquivo}" foi criada!')
 
+def escrever_arquivo(agenda, nome_arquivo):
+  # open com "w"
+    # for evento na agenda
+      # escreve o número (chave do dict)
+      # for elemento na lista (depende se vocÊ quer um for ou n)
+      # escreve as coisas nome,data,hora,etc...
+
+      # evento, nome, descrição, data hora
+      # 0, MC102, "aula de MC102", 24/06/2020, 14:00
+
+
 
 def ler_arquivo(agenda_csv):
     agenda = dict()
@@ -15,6 +26,7 @@ def ler_arquivo(agenda_csv):
             evento = linha[1:]
             agenda[int(id_evento)] = evento
             # for idx in range(len(linha)):
+    escrever_arquivo(agenda,agenda_csv)
     return agenda
 
 
@@ -104,4 +116,3 @@ def main():
 
 
 main()
-

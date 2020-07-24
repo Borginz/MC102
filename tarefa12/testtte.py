@@ -1,22 +1,11 @@
-lista_alteracoes = []
-  if nome != None:
-    lista_alteracoes.append(nome)
-    elif descricao != None:
-      lista_alteracoes.append(descricao)
-      elif data != None:
-        lista_alteracoes.append(hora)
-    elif hor
-dict.values()
-lista_alteracoes = []
-  if nome != None:
-    lista_alteracoes.append(nome)
-  if descricao != None:
-    lista_alteracoes.append(descricao)
-  if data != None:
-    lista_alteracoes.append(data)
-  if hora != None:
-    lista_alteracoes.appen(hora)
-    for idx in agenda.values():
-      if idx == evento:
-        for elementos in lista_alteracoes:
-          if elemen
+agenda = dict()
+nome = "MC102"
+descricao = "Aula de laboratorio"
+data = "01/06/2020"
+hora = "14:00"
+agenda[1] =[nome,descricao,data,hora]
+x = max(agenda)
+agenda[x+1] = [nome,descricao,data,hora]
+print(agenda)
+for evento in agenda:
+    print(nome)
