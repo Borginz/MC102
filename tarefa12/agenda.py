@@ -13,7 +13,7 @@ def escrever_arquivo(agenda, nome_arquivo):
             descricao = agenda[evento][1]
             data = agenda[evento][2]
             hora = agenda[evento][3]
-            arquivo.write(str(i)+','+nome+','+descricao+','+data+','+hora)
+            arquivo.write(str(i)+','+nome+','+descricao+','+data+','+hora+'\n')
 
 
 
@@ -102,10 +102,10 @@ def receber_argumentos():
     required = True)
     parser.add_argument('operacao', help="operacoes que queremos realizar na agenda")
     parser.add_argument('--evento', help='mostra qual o evento', type=int)
-    parser.add_argument('--nome', help='mostra o nome do evento',default='')
-    parser.add_argument('--descricao', help='descricao do evento',default='')
-    parser.add_argument('--data', help='data do evento',default='')
-    parser.add_argument('--hora', help='hora do evento',default='')
+    parser.add_argument('--nome', help='mostra o nome do evento')
+    parser.add_argument('--descricao', help='descricao do evento')
+    parser.add_argument('--data', help='data do evento')
+    parser.add_argument('--hora', help='hora do evento')
     args = parser.parse_args()
     return args
 
