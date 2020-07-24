@@ -1,9 +1,15 @@
-def ler_arquivo(agenda_csv):
-    agenda = dict()
-    with open(agenda_csv) as arquivo:
-        for linhas in arquivo:
-            linha = linhas.strip().split(',')
-            id_evento = linha[0]
-            evento = linha[1:]
-            agenda[int(id_evento)] = evento
-        return agenda
+agenda = dict()
+nome = "mc102"
+descricao = "plipli"
+data = "04/08"
+hora = "14:00"
+agenda[1] = [nome,descricao,data,hora]
+
+for evento in agenda:
+    i = evento
+    nome = agenda[evento][0]
+    descricao = agenda[evento][1]
+    data = agenda[evento][2]
+    hora = agenda[evento][3]
+
+    print(nome)
