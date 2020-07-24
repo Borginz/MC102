@@ -2,10 +2,12 @@ import argparse
 
 
 def inicializar_agenda(nome_arquivo):
+    ''' Função para iniciar uma nova agenda'''
     with open(nome_arquivo, 'w') as arquivo:
         print(f'Uma agenda vazia "{nome_arquivo}" foi criada!')
 
 def escrever_arquivo(agenda, nome_arquivo):
+    '''' Função para receber o arquivo com a agenda e escrever nessa'''
     with open(nome_arquivo,'w',encoding='utf-8') as arquivo:
         for evento in agenda:
             i = evento
@@ -15,22 +17,9 @@ def escrever_arquivo(agenda, nome_arquivo):
             hora = agenda[evento][3]
             arquivo.write(str(i)+','+nome+','+descricao+','+data+','+hora+'\n')
 
-
-
-
-
-  # open com "w"
-    # for evento na agenda
-      # escreve o número (chave do dict)
-      # for elemento na lista (depende se vocÊ quer um for ou n)
-      # escreve as coisas nome,data,hora,etc...
-
-      # evento, nome, descrição, data hora
-      # 0, MC102, "aula de MC102", 24/06/2020, 14:00
-
-
-
+            
 def ler_arquivo(agenda_csv):
+    '''Função para ler o arquivo csv e devolver a agenda'''
     agenda = dict()
     with open(agenda_csv) as arquivo:
         for linhas in arquivo:
@@ -43,6 +32,7 @@ def ler_arquivo(agenda_csv):
 
 
 def listar_agenda(agenda, data):
+    '''Função para devolver os eventos do dia no formato csv'''
     eventos = []
     for key in agenda:  # <- esse
         if agenda[key][2] == data:
@@ -59,6 +49,7 @@ def listar_agenda(agenda, data):
         print(f"Não existem eventos para o dia {data}!")
 
 def alterar(agenda, evento, nome, descricao, data, hora):
+    '''Função para alterar a agenda dado o evento mencionado com o argumento pedido'''
     lista_alteracoes = agenda[evento]
     if nome != None:
         lista_alteracoes[0] = nome
@@ -76,9 +67,7 @@ def alterar(agenda, evento, nome, descricao, data, hora):
 
 
 def criar_evento(agenda, nome, descricao, data, hora):
-    ''' Se a agenda estiver vazia:
-    adiciono na posição no dict com valor 1 e
-    as informações seguintes'''
+    '''Função para criar o evento com suas descriçoes'''
 
 
     if len(agenda) == 0:
@@ -91,6 +80,7 @@ def criar_evento(agenda, nome, descricao, data, hora):
 
 
 def remover_evento(agenda, evento):
+    '''Função para remover o evento pedido'''
     agenda.pop(evento)
     return agenda
 
