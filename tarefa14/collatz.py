@@ -1,17 +1,16 @@
 
-def collatz(n,contador):
+def collatz(n):
     if n == 1:
         return 0
     elif n % 2 == 0:
-        return collatz(n/2,)
+        return collatz(n/2) + 1
     else:
-        return collatz((3*n+1)/2,contador)
+        return collatz((3*n+1)/2) + 1
 
 
 
 def main():
     numero = int(input())
-    contador = 0
-    collatz(numero,contador)
-    print(contador)
+    b =collatz(numero)
+    print(b)
 main()
