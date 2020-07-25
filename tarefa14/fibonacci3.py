@@ -1,13 +1,15 @@
-def fibonaccizar(numero):
-    if 0<=numero<=2:
-        return numero
+def fibonaccizar(n,lista):
+    if 0<=n<=2:
+        return n
     else:
-        numero = fibonaccizar(numero-1)+fibonaccizar(numero-2)+fibonaccizar(numero-3)
-        return numero
+        n = fibonaccizar(lista[-1],lista)+fibonaccizar(lista[-2],lista)+fibonaccizar(lista[-3],lista)
+        lista.append(n)
+        return n
 
 def main():
     numero = int(input())
-    print(fibonaccizar(numero))
+    lista = [0,1,2]
+    print(fibonaccizar(numero,lista))
 
 
 main()
