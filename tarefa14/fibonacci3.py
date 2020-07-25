@@ -1,24 +1,19 @@
-def achar_enesimo(n,dict):
-    if 0<=n<=2:
-        dict[n] = n
+
+def fib(n,dicio):
+    if n <=2:
+        return n
+    if n in dicio:
+        return dicio[n]
     else:
-        if n-3 not in dict.values():
-            dict[n-3]= achar_enesimo(n-3,dict)
-        else:
-            return
-
-
-
-
-
-
+        numero = fib(n-1,dicio) + fib(n-2,dicio) + fib(n-3,dicio)
+        dicio[n] = numero
+        return numero
 
 def main():
-    numero = int(input())
-    dicionario = dict()
-    (achar_enesimo(numero,dicionario))
-    print(dicionario[numero])
+    n = int(input())
+    dicio = {}
+    print(fib(n,dicio))
+
+
 
 main()
-
-
