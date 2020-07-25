@@ -1,15 +1,24 @@
-def fibonaccizar(n,lista):
+def achar_enesimo(n,dict):
     if 0<=n<=2:
-        return n
+        dict[n] = n
     else:
-        n = fibonaccizar(lista[-1],lista)+fibonaccizar(lista[-2],lista)+fibonaccizar(lista[-3],lista)
-        lista.append(n)
-        return n
+        if n-3 not in dict.values():
+            dict[n-3]= achar_enesimo(n-3,dict)
+        else:
+            return
+
+
+
+
+
+
 
 def main():
     numero = int(input())
-    lista = [0,1,2]
-    print(fibonaccizar(numero,lista))
-
+    dicionario = dict()
+    (achar_enesimo(numero,dicionario))
+    print(dicionario[numero])
 
 main()
+
+
