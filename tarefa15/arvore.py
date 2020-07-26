@@ -1,4 +1,4 @@
-from tarefa15 import modulo
+from modulo import*
 
 def obter_html(url):
 
@@ -28,7 +28,11 @@ def obter_html(url):
 
 
 def mostrar_arvore(url_inicio,url_atual,espacos,lista_printados):
-
+    '''Função para imprimir a arvore de links mostrando a hierarquia a partir do inicial,
+    obtendo uma string com o conteudo do html, procurando pelo padrao com o  regex armazenando na
+    lista_html,percorrendo as url's e analisando pela função resolver_url(analisar url's incompletas),
+    se a url nao estiver sido printada anteoriormente e for validada pela função "eh_url_valida" ela
+    é printada comos devidos espaços e é chamada a recursao" '''
 
 
     html_atual = obter_html(url_atual)
