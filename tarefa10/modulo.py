@@ -27,10 +27,20 @@ def escrever_imagem_codificada(largura, altura, codificacao, nome_do_arquivo):
 
 
 def escrever_imagem_decodificada(largura, altura, imagem, nome_do_arquivo):
-    pass
+    with open(nome_do_arquivo, 'w') as arquivo:
+        arquivo.write(f'P1C\n')
+        arquivo.write(f'{largura} {altura}\n')
+        for idx_linha in range(altura):
+            for elemento in imagem[idx_linha]:
+                if not idx_linha == altura-1:
+                    arquivo.write(f'{elemento}')
+                else:
+                    arquivo.write(f'{elemento}\n')
 
 
-main.py
+
+
+
 
 def main():
 
