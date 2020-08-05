@@ -5,8 +5,9 @@ def filtra(primos,lista):
     '''
     lista_filtrada = []
     for elemento in lista:
-        if primos:
+        if primos(elemento):
             lista_filtrada.append(elemento)
+    print(lista_filtrada)
     return lista_filtrada
 def mapeia(elevar_quadrado,lista):
     '''
@@ -32,9 +33,23 @@ def somar(lista):
     for elemento in lista:
         valor+=elemento
     return valor
-def primos(lista):
-    pass
-def elevar_qaudrado(elemento):
+def primos(elemento):
+    '''
+    Verificar cada elemento dado se ele é primo, a partir de casos bases como 1 e 0, retornando
+    True ou False
+    '''
+    if elemento == 1 or 0:
+        return False
+    else:
+        for divisores_possiveis in range(2, elemento):
+            if elemento % divisores_possiveis == 0:
+                return True
+            else:
+                return False
+def elevar_quadrado(elemento):
+    '''
+    Retorna os elementos ao quadrao
+    '''
     return elemento**2
 
 
