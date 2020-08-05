@@ -25,7 +25,13 @@ def reduz(somar,lista):
     lista_reduzida.append(somar(lista))
     return lista_reduzida
 def somar(lista):
-    pass
+    '''
+    Somar todos os elementos de uma lista começando com um valor 0
+    '''
+    valor = 0
+    for elemento in lista:
+        valor+=elemento
+    return valor
 def primos(lista):
     pass
 def elevar_qaudrado(elemento):
