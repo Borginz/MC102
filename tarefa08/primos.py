@@ -1,5 +1,13 @@
 def filtra(primos,lista):
-    pass
+    '''
+    Criar uma lista filtrada vazia, e analisar cada elemento da lista inicial e verificar se
+    podera ser adicionado, pela condição primos, na lista_filtrada
+    '''
+    lista_filtrada = []
+    for elemento in lista:
+        if primos:
+            lista_filtrada.append(elemento)
+    return lista_filtrada
 def mapeia(elevar_quadrado,lista):
     pass
 def reduz(somar,lista):
@@ -9,6 +17,7 @@ def somar(lista):
 def primos(lista):
     pass
 def elevar_qaudrado(lista):
+    pass
 
 
 def main():
