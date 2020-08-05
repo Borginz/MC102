@@ -40,11 +40,10 @@ def primos(elemento):
     if elemento == 1 or 0:
         return False
     else:
-        for divisores_possiveis in range(2,elemento+1):
-            if elemento % divisores_possiveis == 0 and elemento != divisores_possiveis:
+        for divisores_possiveis in range(2,int(elemento**0.5)+1):
+            if elemento % divisores_possiveis == 0:
                 return False
-            else:
-                return True
+    return True
 
 def elevar_quadrado(elemento):
     '''
@@ -56,7 +55,6 @@ def elevar_quadrado(elemento):
 def main():
     lista_entrada = [int(x) for x in input().split()]
     lista_filtrada = filtra(primos,lista_entrada)
-    print(lista_filtrada)
     lista_mapeada = mapeia(elevar_quadrado,lista_filtrada)
     print(reduz(somar,lista_mapeada))
 
