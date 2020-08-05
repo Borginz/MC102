@@ -18,7 +18,12 @@ def mapeia(elevar_quadrado,lista):
         lista_mapeada.append(elevar_quadrado(elemento))
     return lista_mapeada
 def reduz(somar,lista):
-    pass
+    '''
+    Criar uma lista reduzida acumulando os valores de forma que produz um unico valor
+    '''
+    lista_reduzida = []
+    lista_reduzida.append(somar(lista))
+    return lista_reduzida
 def somar(lista):
     pass
 def primos(lista):
