@@ -7,7 +7,6 @@ def filtra(primos,lista):
     for elemento in lista:
         if primos(elemento):
             lista_filtrada.append(elemento)
-    print(lista_filtrada)
     return lista_filtrada
 def mapeia(elevar_quadrado,lista):
     '''
@@ -24,7 +23,7 @@ def reduz(somar,lista):
     '''
     lista_reduzida = []
     lista_reduzida.append(somar(lista))
-    return lista_reduzida
+    return lista_reduzida[0]
 def somar(lista):
     '''
     Somar todos os elementos de uma lista começando com um valor 0
@@ -41,11 +40,12 @@ def primos(elemento):
     if elemento == 1 or 0:
         return False
     else:
-        for divisores_possiveis in range(2, elemento):
-            if elemento % divisores_possiveis == 0:
-                return True
-            else:
+        for divisores_possiveis in range(2,elemento+1):
+            if elemento % divisores_possiveis == 0 and elemento != divisores_possiveis:
                 return False
+            else:
+                return True
+
 def elevar_quadrado(elemento):
     '''
     Retorna os elementos ao quadrao
@@ -56,6 +56,7 @@ def elevar_quadrado(elemento):
 def main():
     lista_entrada = [int(x) for x in input().split()]
     lista_filtrada = filtra(primos,lista_entrada)
+    print(lista_filtrada)
     lista_mapeada = mapeia(elevar_quadrado,lista_filtrada)
     print(reduz(somar,lista_mapeada))
 
