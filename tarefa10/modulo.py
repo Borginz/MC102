@@ -1,4 +1,15 @@
 def codificar(largura, altura, imagem):
+    padraoi == imagem[0][0]
+    padraoj == imagem[1][0]
+    codificacao = []
+    for idx in range(0,altura,2):
+        for codificacoes in range(largura):
+            decodificacao.append(imagem[idx][codificacoes]+imagem[idx][codificacoes])
+    for idx i
+
+
+
+
     return codificacao
 
 
