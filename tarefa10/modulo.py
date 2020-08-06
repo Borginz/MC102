@@ -27,7 +27,30 @@ def carregar_imagem_codificada(nome_do_arquivo):
 
 def carregar_imagem_decodificada(nome_do_arquivo):
     with open(nome_do_arquivo) as arquivo:
-        
+        P1C = arquivo.readline().strip()
+        larg_alt = arquivo.readline().strip()
+        altura, largura = larg_alt.split()
+        altura = int(altura)
+        largura = int(largura)
+        imagem = []
+        cont_linha = 0
+        idx_coluna = 0
+        while cont_linha < altura:
+            linha = arquivo.readline().strip()
+            imagem.append([])
+            while idx_coluna < largura:
+                imagem[cont_linha].append(linha[idx_coluna])
+                idx_coluna+=1
+        cont_linha+=1
+
+
+
+
+#for elemento in linha:
+#imagem[cont_linha].append(elemento)
+#cont_linha+=1
+
+
 
 
 
