@@ -17,7 +17,7 @@ def codificar(largura, altura, imagem):
         else:
             codificacao.append(str(contador))
             codificacao.append(padrao)
-            padrao = imagem_linear[idx_linear+1]
+            padrao = imagem_linear[idx_linear]
             contador = 1
 
 
@@ -32,9 +32,20 @@ def codificar(largura, altura, imagem):
 
     return codificacao,imagem_linear
 def main():
-    largura = 8
-    altura = 6
-    imagem = [['0','0','0','0','0','0','0','0'],['1','1','1','1','0','0','0','0'],['1','1','1','1','1','1','1','1'],['1','1','1','1','1','1','1','1'],['1','1','1','1','1','1','1','1'],['1','1','1','1','1','1','1','1']]
+    largura = 6
+    altura = 10
+    imagem = [
+        ['0', '0', '0', '0', '1', '0'],
+        ['0', '0', '0', '0', '1', '0'],
+        ['0', '0', '0', '0', '1', '0'],
+        ['0', '0', '0', '0', '1', '0'],
+        ['0', '0', '0', '0', '1', '0'],
+        ['0', '0', '0', '0', '1', '0'],
+        ['1', '0', '0', '0', '1', '0'],
+        ['0', '1', '1', '1', '0', '0'],
+        ['0', '0', '0', '0', '0', '0'],
+        ['0', '0', '0', '0', '0', '0'],
+    ]
     codificacao,imagem = codificar(largura,altura,imagem)
     print(imagem)
     print(codificacao)

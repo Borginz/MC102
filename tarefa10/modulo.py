@@ -17,7 +17,7 @@ def codificar(largura, altura, imagem):
         else:
             codificacao.append(str(contador))
             codificacao.append(padrao)
-            padrao = imagem_linear[idx_linear+1]
+            padrao = imagem_linear[idx_linear]
             contador = 1
 
 
@@ -90,7 +90,7 @@ def escrever_imagem_codificada(largura, altura, codificacao, nome_do_arquivo):
 def escrever_imagem_decodificada(largura, altura, imagem, nome_do_arquivo):
     with open(nome_do_arquivo, 'w') as arquivo:
         arquivo.write(f'P1C\n')
-        arquivo.write(f'{largura} {altura}\n')
+        arquivo.write(largura,altura,'\n')
         for idx_linha in range(altura):
             for elemento in imagem[idx_linha]:
                 if not idx_linha == altura-1:
