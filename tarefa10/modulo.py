@@ -3,6 +3,8 @@ def codificar(largura, altura, imagem):
 
 
 def decodificar(largura, altura, codificacao):
+    imagem_decodificada = []
+    imagem = [[] for _ in range(altura)]
 
 
 
@@ -11,10 +13,24 @@ def decodificar(largura, altura, codificacao):
 
 
 def carregar_imagem_codificada(nome_do_arquivo):
+    with open(nome_do_arquivo) as arquivo:
+        P1C = arquivo.readline().strip()
+        larg_alt = arquivo.readline().strip()
+        codificacao = arquivo.readline().strip().split()
+        altura,largura = larg_alt.split()
+        altura = int(altura)
+        largura = int(largura)
+
+
     return largura, altura, codificacao
 
 
 def carregar_imagem_decodificada(nome_do_arquivo):
+    with open(nome_do_arquivo) as arquivo:
+        
+
+
+
     return largura, altura, imagem
 
 

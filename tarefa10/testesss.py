@@ -1,3 +1,4 @@
-largura = 8
-altura = 6
-print(f'{largura} {altura}')
+alt_larg =[6,8]
+altura,largura = alt_larg
+print(altura)
+print(largura)
