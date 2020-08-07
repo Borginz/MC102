@@ -90,14 +90,15 @@ def escrever_imagem_codificada(largura, altura, codificacao, nome_do_arquivo):
 
 
 def escrever_imagem_decodificada(largura, altura, imagem, nome_do_arquivo):
+
     with open(nome_do_arquivo, 'w') as arquivo:
         arquivo.write(f'P1\n')
         largura = str(largura)
         altura = str(altura)
         arquivo.write(largura+' '+altura+'\n')
-        for idx_linha in range(int(altura)):
-            for idx in range(int(largura)):
-                if idx != (int(altura)-1):
-                    arquivo.write(imagem[idx_linha][idx])
+        for idx_alt in range(int(altura)):
+            for idx_larg in range(int(largura)):
+                if idx_larg != int(largura)-1:
+                    arquivo.write(imagem[idx_alt][idx_larg])
                 else:
-                    arquivo.write(imagem[idx_linha][idx]+'\n')
+                    arquivo.writelines(imagem[idx_alt][idx_larg]+'\n')
