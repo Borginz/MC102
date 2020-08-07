@@ -41,8 +41,7 @@ def decodificar(largura, altura, codificacao):
 def carregar_imagem_codificada(nome_do_arquivo):
     with open(nome_do_arquivo) as arquivo:
         arquivo.readline()
-        larg_alt = arquivo.readline().strip()
-        largura,altura = larg_alt.split()
+        largura,altura = arquivo.readline().strip().split()
         largura = int(largura)
         altura = int(altura)
         codificacao = arquivo.readline().strip().split()
@@ -80,7 +79,7 @@ def escrever_imagem_codificada(largura, altura, codificacao, nome_do_arquivo):
 
 def escrever_imagem_decodificada(largura, altura, imagem, nome_do_arquivo):
     with open(nome_do_arquivo, 'w') as arquivo:
-        arquivo.write(f'P1C\n')
+        arquivo.write(f'P1\n')
         arquivo.write(largura+' '+altura+'\n')
         for idx_linha in range(altura):
             for idx in range(largura):
