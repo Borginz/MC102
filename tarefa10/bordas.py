@@ -1,6 +1,19 @@
-from modulo import carregar_imagem_codificada, decodificar, codificar, escrever_imagem_codificada
+from modulo import *
 
 def destacar_bordas(largura,altura,imagem):
+    nova_imagem = imagem[:]
+    for i in range(1,altura-1):
+        for j in range(1,largura-1):
+            if nova_imagem[i][j] == '1':
+                if imagem[i - 1][j] == '0' or imagem[i - 1][j + 1] == '0' or imagem[i - 1][j - 1] == '0' or imagem[i][j + 1] == '0' or imagem[i][j - 1] == '0' or imagem[i][j] == '0' or imagem[i + 1][j + 1] == '0' or imagem[i + 1][j] == '0':
+                    imagem[i][j] = '1'
+                else:
+                    imagem[i][j] = '0'
+            else:
+                imagem[i][j] = '0'
+
+
+
 
 
 
