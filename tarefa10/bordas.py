@@ -9,7 +9,7 @@ def destacar_bordas(largura,altura,imagem):
         for j in range(1,largura-1):
             if imagem[i][j] == '1':
                 if imagem[i-1][j-1] == '1' and imagem[i-1][j] == '1' and imagem[i-1][j+1] == '1' and \
-                        imagem[i][j] == '1' and imagem[i][j+1] == '1' and \
+                        imagem[i][j-1] == '1' and imagem[i][j+1] == '1' and \
                         imagem[i+1][j] == '1' and imagem[i+1][j+1] == '1' and imagem[i+1][j-1] == '1':
                     nova_imagem[i][j] = '0'
 
